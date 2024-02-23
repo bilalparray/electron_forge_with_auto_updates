@@ -54,13 +54,13 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-let server = "http://192.168.29.71:4010";
-let url = `${server}/update/${app.getVersion()}`;
+let server = `http://192.168.29.71:4010/update/2.0.0/`;
 
-autoUpdater.setFeedURL({ url });
+autoUpdater.setFeedURL({ url: server, serverType: JSON });
 
 setInterval(() => {
   autoUpdater.checkForUpdates();
+  log.info("update func called");
 }, 60000);
 
 autoUpdater.on("checking-for-update", () => {
