@@ -1,0 +1,36 @@
+{
+  "name": "unit-converter",
+  "productName": "Unit Converter",
+  "version": "1.0.0",
+  "description": "Unit Converter application Developed By Renosoftwares",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Renosoftwares",
+    "email": "dev.renosoftwares@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "cheerio": "^1.0.0-rc.12",
+    "electron-log": "^5.1.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "electron": "28.2.0"
+  }
+}
