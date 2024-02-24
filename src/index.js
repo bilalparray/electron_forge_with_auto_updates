@@ -1,6 +1,7 @@
 const { app, BrowserWindow, autoUpdater, dialog } = require("electron");
 const path = require("path");
 const log = require("electron-log");
+const { updateElectronApp, UpdateSourceType } = require("update-electron-app");
 log.initialize();
 
 log.transports.file.resolvePathFn = () =>
@@ -54,44 +55,52 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-let server = `http://192.168.29.71:4010/update/2.0.0/`;
+// let server = `http://192.168.29.71:4010/update/2.0.0/`;
 
-autoUpdater.setFeedURL({ url: server, serverType: JSON });
+// autoUpdater.setFeedURL({ url: server, serverType: JSON });
 
-setInterval(() => {
-  autoUpdater.checkForUpdates();
-  log.info("update func called");
-}, 60000);
+// setInterval(() => {
+//   autoUpdater.checkForUpdates();
+//   log.info("update func called");
+// }, 60000);
 
-autoUpdater.on("checking-for-update", () => {
-  console.log("Checking for update...");
-  log.info("Checking for update...");
-});
-autoUpdater.on("update-available", () => {
-  console.log("Update available.");
-  log.info("Update available.");
-});
+// autoUpdater.on("checking-for-update", () => {
+//   console.log("Checking for update...");
+//   log.info("Checking for update...");
+// });
+// autoUpdater.on("update-available", () => {
+//   console.log("Update available.");
+//   log.info("Update available.");
+// });
 
-autoUpdater.on("update-downloaded", (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: "info",
-    buttons: ["Restart", "Later"],
-    title: "Application Update",
-    message: process.platform === "win32" ? releaseNotes : releaseName,
-    detail:
-      "A new version has been downloaded. Restart the application to apply the updates.",
-  };
+// autoUpdater.on("update-downloaded", (event, releaseNotes, releaseName) => {
+//   const dialogOpts = {
+//     type: "info",
+//     buttons: ["Restart", "Later"],
+//     title: "Application Update",
+//     message: process.platform === "win32" ? releaseNotes : releaseName,
+//     detail:
+//       "A new version has been downloaded. Restart the application to apply the updates.",
+//   };
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall();
-  });
-});
-autoUpdater.on("update-not-available", () => {
-  console.log("Update not available.");
-  log.info("Update not available.");
-});
+//   dialog.showMessageBox(dialogOpts).then((returnValue) => {
+//     if (returnValue.response === 0) autoUpdater.quitAndInstall();
+//   });
+// });
+// autoUpdater.on("update-not-available", () => {
+//   console.log("Update not available.");
+//   log.info("Update not available.");
+// });
 
-autoUpdater.on("error", (error) => {
-  console.error("AutoUpdater error ghanta:", error);
-  log.error("AutoUpdater error ghangta:", error);
+// autoUpdater.on("error", (error) => {
+//   console.error("AutoUpdater error ghanta:", error);
+//   log.error("AutoUpdater error ghangta:", error);
+// });
+
+updateElectronApp({
+  updateSource: {
+    type: UpdateSourceType.StaticStorage,
+    baseUrl: `https://aae0-2405-201-5504-a9ad-3133-72bd-17ef-dee8.ngrok-free.app/update2/win.json`,
+  },
+  logger: require("electron-log"),
 });

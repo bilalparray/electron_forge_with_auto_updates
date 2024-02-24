@@ -3,6 +3,18 @@ module.exports = {
     asar: true,
     icon: "src/assets/icons/ico.ico", // Specify the correct path to your icon file
   },
+  publishers: [
+    {
+      name: "@electron-forge/publisher-github",
+      config: {
+        repository: {
+          owner: "bilalparray07",
+          name: "ucforge",
+        },
+        prerelease: true,
+      },
+    },
+  ],
   makers: [
     {
       name: "@electron-forge/maker-squirrel",
