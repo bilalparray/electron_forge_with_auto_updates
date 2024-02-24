@@ -3,25 +3,15 @@ module.exports = {
     asar: true,
     icon: "src/assets/icons/ico.ico", // Specify the correct path to your icon file
   },
-  publishers: [
-    {
-      name: "@electron-forge/publisher-github",
-      config: {
-        repository: {
-          owner: "bilalparray07",
-          name: "ucforge",
-        },
-        prerelease: true,
-      },
-    },
-  ],
   makers: [
     {
       name: "@electron-forge/maker-squirrel",
       config: {
+        name: "UnitConverter",
         icon: "src/assets/icons/ico.ico",
         setupIcon: "src/assets/icons/ico.ico",
         iconUrl: "https://renosoftwares.com/favicon.ico",
+        setupExe: "UnitConverter Setup.exe",
       },
     },
     {
