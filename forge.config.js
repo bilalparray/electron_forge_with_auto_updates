@@ -10,8 +10,8 @@ module.exports = {
         name: "UnitConverter",
         icon: "src/assets/icons/ico.ico",
         setupIcon: "src/assets/icons/ico.ico",
-        iconUrl: "https://renosoftwares.com/favicon.ico",
-        setupExe: "UnitConverter Setup.exe",
+        iconUrl: "https://renosoftwares.com/favicon.ico", ///for icon in control panel
+        setupExe: "UnitConverter Setup.exe", //setup name
       },
     },
     {

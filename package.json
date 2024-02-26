@@ -1,7 +1,7 @@
 {
   "name": "unit-converter",
   "productName": "Unit Converter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Unit Converter application Developed By Renosoftwares",
   "main": "src/index.js",
   "scripts": {
