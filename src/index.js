@@ -1,7 +1,7 @@
 const { app, BrowserWindow, autoUpdater, dialog } = require("electron");
 const path = require("path");
 const log = require("electron-log");
-
+const AppConstants = require("../appconstants");
 // initializing log so that our update information will be availbale for us
 log.initialize();
 
@@ -61,8 +61,8 @@ app.on("activate", () => {
  * setFeedUrl for autoupdate,,,, this will work for local server or actual static server where we will put our files so that they can be accesible
  */
 autoUpdater.setFeedURL({
-  provider: "generic",
-  url: "http://192.168.29.71:3031/", // Replace with your actual server address
+  provider: AppConstants.autoUpdateProvider,
+  url: AppConstants.autoUpdateUrl,
 });
 
 // checking updates every hour after app starts
