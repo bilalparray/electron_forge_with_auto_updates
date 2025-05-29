@@ -30,7 +30,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, "index.html"));
 
   // removing default menu----
-  mainWindow.removeMenu(); //commit this line if you want to use menu
+  // mainWindow.removeMenu(); //commit this line if you want to use menu
 };
 
 /**
