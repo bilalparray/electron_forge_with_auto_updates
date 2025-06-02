@@ -1,5 +1,5 @@
 {
-  "name": "unit-converter",
+  "name": "unitconverter",
   "productName": "Unit Converter",
   "version": "2.0.1",
   "description": "Unit Converter application Developed By Renosoftwares",
@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "build-msix": "electron-builder --win --x64"
   },
   "keywords": [],
   "author": {
@@ -34,11 +35,31 @@
     "@electron-forge/maker-zip": "^7.2.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
     "@electron-forge/publisher-github": "^7.2.0",
-    "electron": "28.2.0"
+    "electron": "28.2.0",
+    "electron-builder": "^24.13.3"
   },
   "build": {
-    "publish": {
-      "provider": "generic"
+    "appId": "com.renosoftwares.unitconverter",
+    "productName": "Unit Converter",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "appconstants.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "appx",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "publisherName": "Renosoftwares"
     }
   }
 }
