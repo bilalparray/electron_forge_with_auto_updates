@@ -10,7 +10,7 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
-    "build-msix": "electron-builder --win --x64"
+    "build-msix": "npx electron-builder --win --x64"
   },
   "keywords": [],
   "author": {
@@ -60,6 +60,12 @@
         }
       ],
       "publisherName": "Renosoftwares"
+    },
+    "appx": {
+      "identityName": "RenoSoftwares.UnitConverter",
+      "publisher": "CN=522B390C-7F34-4E3C-9B8E-D7717E0EB92B",
+      "publisherDisplayName": "RenoSoftwares",
+      "displayName": "Unit Converter"
     }
   }
 }
